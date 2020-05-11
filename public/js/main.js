@@ -57,6 +57,6 @@ fetch('http://localhost:3000/api/countries')
   .then((res) => res.json())
   .then((data) => {
     for (let i = 0; i < data.length; i++) {
-      countryCodesList.innerHTML += `<div class="list-item">${data[i].countryCode} - ${data[i].enShortName}<img src="http://localhost:3000/api/countries/FlagByCountryCode/${data[i].countryCode}/256" alt=""></img></div>`
+      countryCodesList.innerHTML += `<div class="list-item">${data[i].countryCode} - ${data[i].enShortName}<img src="https://www.countries-api.rokskrbec.si/api/countries/FlagByCountryCode/${data[i].countryCode}/256" alt=""></img></div>`
     }
   })
