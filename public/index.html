@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://kit.fontawesome.com/04a2ad65c9.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Bitter&family=Heebo&family=Consolas&family=Noto+Sans&display=swap" rel="stylesheet" />
+    <script src="/js/main.js" defer></script>
+    <script src="/js/prism.js" defer></script>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/prism.css">
+    <title>Countries API</title>
+  </head>
+  <body>
+    <nav>
+      <div class="nav-wrapper">
+        <div class="logo-wrapper"> <img src="../images/logo.svg" alt="logo"> <h1> Countries API</h1></div>
+        <div class="menu-wrapper">
+          <ul>
+            <li><a href="#all-countries">All Countries Endpoint</a></li>
+            <li><a href="#english">English Endpoints</a></li>
+            <li><a href="#slovenian">Slovenian Endpoints</a></li>
+            <li><a href="#country-code">Country Code Endpoint</a></li>
+            <li><a href="#flag">Flag Endpoints</a></li>
+            <li><a href="#supported-countries">Supported Countries</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="hero">
+      <div class="functionalities">
+        <ul>
+          <li>Short and full country names in English and Slovenian language</li>
+          <li>Country codes</li>
+          <li>Country flags</li>
+        </ul>
+      </div>
+    <div class="call-to-action">
+      <a href="#documentation">Read Docs <i class="fas fa-level-down-alt"></i></a>
+    </div>
+  </div>
+    <main>
+      <section>
+        <a id='documentation'></a>
+        <h2>Documentation</h2>
+        <p>Welcome to Countries API documentation.</p>
+        <p>Click on an API endpoint to copy.</p>
+        <h3>Endpoints</h3>
+        <p>Below are all available endpoints you can access.</p>
+        <a id='all-countries'></a>
+        <h4>All Countries Endpoint</h4>
+        <p>Returns all the countries in alphabetical order in json format.</p>
+        <div class="api-endpoint"><div>/api/countries</div><div class="api-endpoint-copy-icon"><i class="far fa-copy"></i></div></div>
+        <p>Fetch example:</p>
+          <pre>
+            <code class='language-javascript fetch-example'>
+              fetch('https://www.countries-api.rokskrbec.si/api/countries')
+                .then((res) => res.json())
+                .then((data) => {
+                  console.log(data);
+                })</code>
+          </pre>
+        <p>Result:</p>
+        <p>
+          <pre>
+            <code class="=language-json">
+              [
+                {
+                "id": "0",
+                "enShortName": "Afghanistan",
+                "enFullName": "Islamic Republic of Afghanistan",
+                "siShortName": "Afganistan",
+                "siFullName": "Islamska republika Afganistan",
+                "countryCode": "AF"
+                },
+                {
+                "id": "1",
+                "enShortName": "Åland Islands",
+                "enFullName": "Åland Islands",
+                "siShortName": "Ålandski otoki",
+                "siFullName": "Ålandski otoki",
+                "countryCode": "AX"
+                },
+                {
+                "id": "2",
+                "enShortName": "Albania",
+                "enFullName": "Republic of Albania",
+                "siShortName": "Albanija",
+                "siFullName": "Republika Albanija",
+                "countryCode": "AL"
+                }, 
+                ...
+              ]</code>
+          </pre>
+        </p>
+        <a id='english'></a>
+        <h4>English Endpoints</h4>
+        <p>Returns single country in json format.</p>
+        <p>Case insensitive.</p>
+        <p>Query by short or full country name in English language.</p>
+        <div class="api-endpoint"><div>/api/countries/en/ByShortName/:country</div><div class="api-endpoint-copy-icon"><i class="far fa-copy"></i></div></div>
+        <p>Fetch example (Slovenia):</p>
+          <pre>
+            <code class="language-javascript">
+              fetch('https://www.countries-api.rokskrbec.si/api/countries/en/ByShortName/slovenia')
+                .then((res) => res.json())
+                .then((data) => {
+                  console.log(data)
+                })</code>
+          </pre>
+        <p>result:</p>
+        <p>
+          <pre>
+            <code class="=language-json">
+                {
+                "id": "207",
+                "enShortName": "Slovenia",
+                "enFullName": "Republic of Slovenia",
+                "siShortName": "Slovenija",
+                "siFullName": "Republika Slovenija",
+                "countryCode": "SI"
+                }</code>
+          </pre>
+        </p>
+        <div class="api-endpoint"><div>/api/countries/en/ByFullName/:country</div><div class="api-endpoint-copy-icon"><i class="far fa-copy"></i></div></div>
+        <p>Fetch example (Republic of Slovenia):</p>
+          <pre>
+            <code class="language-javascript">
+              fetch('https://www.countries-api.rokskrbec.si/api/countries/en/ByFullName/Republic%20of%20Slovenia')
+                .then((res) => res.json())
+                .then((data) => {
+                  console.log(data)
+                })</code>
+          </pre>
+        <p>result:</p>
+          <pre>
+            <code class="=language-json">
+                {
+                "id": "207",
+                "enShortName": "Slovenia",
+                "enFullName": "Republic of Slovenia",
+                "siShortName": "Slovenija",
+                "siFullName": "Republika Slovenija",
+                "countryCode": "SI"
+                }</code>
+          </pre>
+        <a id='slovenian'></a>
+        <h4>Slovenian Endpoints</h5>
+          <p>Returns single country in json format.</p>
+          <p>Case insensitive.</p>
+          <p>Query by short or full country name in Slovenian language.</p>
+        <div class="api-endpoint"><div>/api/countries/si/ByShortName/:country</div><div class="api-endpoint-copy-icon"><i class="far fa-copy"></i></div></div>
+        <p>Fetch example (Slovenija):</p>
+          <pre>
+            <code class="language-javascript">
+              fetch('https://www.countries-api.rokskrbec.si/api/countries/si/ByShortName/slovenija')
+                .then((res) => res.json())
+                .then((data) => {
+                  console.log(data)
+                })</code>
+          </pre>
+        <p>result:</p>
+          <pre>
+            <code class="=language-json">
+                {
+                "id": "207",
+                "enShortName": "Slovenia",
+                "enFullName": "Republic of Slovenia",
+                "siShortName": "Slovenija",
+                "siFullName": "Republika Slovenija",
+                "countryCode": "SI"
+                }</code>
+          </pre>
+        <div class="api-endpoint"><div>/api/countries/si/ByFullName/:country</div><div class="api-endpoint-copy-icon"><i class="far fa-copy"></i></div></div>
+        <p>Fetch example (Republika Slovenija):</p>
+          <pre>
+            <code class="language-javascript">
+              fetch('https://www.countries-api.rokskrbec.si/api/countries/si/ByFullName/Republika%20Slovenija')
+                .then((res) => res.json())
+                .then((data) => {
+                  console.log(data)
+                })</code>
+          </pre>
+        <p>result:</p>
+          <pre>
+            <code class="=language-json">
+                {
+                "id": "207",
+                "enShortName": "Slovenia",
+                "enFullName": "Republic of Slovenia",
+                "siShortName": "Slovenija",
+                "siFullName": "Republika Slovenija",
+                "countryCode": "SI"
+                }</code>
+          </pre>
+        <a id='country-code'></a>
+        <h4>Country Code Endpoint</h4>
+        <p>Returns single country in json format.</p>
+        <p>Case insensitive.</p>
+        <p>Query by country code.</p>
+        <div class="api-endpoint"><div>/api/countries/ByCountryCode/:countryCode</div><div class="api-endpoint-copy-icon"><i class="far fa-copy"></i></div></div>
+        <p>Fetch example (si):</p>
+          <pre>
+            <code class="language-javascript">
+              fetch('http://localhost:3000/api/countries/ByCountryCode/SI')
+                .then((res) => res.json())
+                .then((data) => {
+                  console.log(data)
+                })</code>
+          </pre>
+        <p>result:</p>
+          <pre>
+            <code class="=language-json">
+                {
+                "id": "207",
+                "enShortName": "Slovenia",
+                "enFullName": "Republic of Slovenia",
+                "siShortName": "Slovenija",
+                "siFullName": "Republika Slovenija",
+                "countryCode": "SI"
+                }</code>
+          </pre>
+        <a id='flag'></a>
+        <h4>Flag Endpoints</h4>
+        <p>Returns country flag.</p>
+        <p>The last number indicates flag width.</p>
+        <p>Widths supported: 64px, 256px, 512px, 1024px, 1920px, 2560px</p>
+        <p>Image format: PNG</p>
+        <div class="api-endpoint"><div>/api/countries/FlagByCountryCode/:countryCode/64</div><div class="api-endpoint-copy-icon"><i class="far fa-copy"></i></div></div>
+        <div class="api-endpoint"><div>/api/countries/FlagByCountryCode/:countryCode/256</div><div class="api-endpoint-copy-icon"><i class="far fa-copy"></i></div></div>
+        <div class="api-endpoint"><div>/api/countries/FlagByCountryCode/:countryCode/512</div><div class="api-endpoint-copy-icon"><i class="far fa-copy"></i></div></div>
+        <div class="api-endpoint"><div>/api/countries/FlagByCountryCode/:countryCode/1024</div><div class="api-endpoint-copy-icon"><i class="far fa-copy"></i></div></div>
+        <div class="api-endpoint"><div>/api/countries/FlagByCountryCode/:countryCode/1920</div><div class="api-endpoint-copy-icon"><i class="far fa-copy"></i></div></div>
+        <div class="api-endpoint"><div>/api/countries/FlagByCountryCode/:countryCode/2560</div><div class="api-endpoint-copy-icon"><i class="far fa-copy"></i></div></div>
+        <p>Example:</p>
+        <pre><code class='language-html country-code'></code></pre>
+        <p>Result:</p>
+        <img src="https://www.countries-api.rokskrbec.si/api/countries/FlagByCountryCode/si/512" alt="slovenia-flag"></img>
+        <a id='supported-countries'></a>
+        <h4>Supported Countries <button class="show-codes">Click to show</button></h4>
+        
+        <div class="country-codes-list"></div>
+      </section>
+    </main>
+    <footer>
+      <div class="footer-wrapper">
+        <div class ="copyright">&copy; Countries API 2020</div>
+        <div class="up"><a href="#">Up <i class="fas fa-arrow-up"></i></div>
+      </div>
+      </footer>
+  </body>
+</html>
