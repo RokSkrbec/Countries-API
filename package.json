@@ -2,9 +2,10 @@
   "name": "countries-api",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "app.js",
   "scripts": {
-    "dev": "nodemon server.js"
+    "dev": "nodemon app.js",
+    "start": "node app.js"
   },
   "author": "",
   "license": "ISC",
@@ -13,6 +14,7 @@
   },
   "dependencies": {
     "cors": "^2.8.5",
+    "env": "0.0.2",
     "express": "^4.17.1"
   }
 }

@@ -2,6 +2,7 @@ const express = require('express')
 const cors = require('cors')
 const app = express()
 const importCountries = require('./assets/countries')
+//require('dotenv').config()
 
 const countries = importCountries.countries()
 
@@ -102,4 +103,5 @@ app.get('/api/countries/FlagByCountryCode/:code/2560', (req, res) => {
   res.sendFile(__dirname + '/public/flags/2560/' + countryCode + '.png')
 })
 
-app.listen(3000, () => console.log('Server running on port 3000.'))
+const port = process.env.PORT || 3000
+app.listen(port, () => console.log(`Server running on port ${port}`))
